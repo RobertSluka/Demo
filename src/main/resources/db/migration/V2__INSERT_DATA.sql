@@ -1,0 +1,6 @@
+--insert
+--    into
+--        users
+--        (name, last_name)
+--    values
+--        ('robert','sluka')

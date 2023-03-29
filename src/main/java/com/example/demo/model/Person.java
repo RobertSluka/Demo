@@ -1,6 +1,7 @@
 package com.example.demo.model;
 
 import jakarta.persistence.*;
+import org.springframework.data.annotation.Id;
 
 import java.util.List;
 import java.util.Set;

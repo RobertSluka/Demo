@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin
 public class SchoolControler {
 
 
@@ -26,11 +27,11 @@ public class SchoolControler {
 
 
     @PostMapping("/school/save")
-    public School addSchool(@RequestBody School school) throws DataAccessException {
+    public School addSchool(@ModelAttribute School school) throws DataAccessException {
          return service.addSchool(school);
     }
     @DeleteMapping("/school/delete/{id}")
-    public String deletePersonById(@PathVariable("id") School id) throws DataAccessException {
+    public String deleteSchoolById(@PathVariable("id") School id) throws DataAccessException {
         service.deleteSchoolById(id);
         return "School deleted successfully";
     }

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin
 public class PersonController {
     @Autowired
    private  PersonServiceImpl personService;
@@ -18,7 +19,7 @@ public class PersonController {
 //        personService.updatePerson(person);
 //    }
     @PostMapping("/person/save")
-    public Person savePerson(@RequestBody Person person) throws DataAccessException {
+    public Person savePerson(@ModelAttribute Person person) throws DataAccessException {
        personService.addPersonToTable(person);
        return person;
     }
