@@ -1,7 +1,6 @@
 package com.example.demo.model;
 
 import jakarta.persistence.*;
-import org.springframework.data.annotation.Id;
 
 import java.util.List;
 import java.util.Set;
@@ -14,17 +13,16 @@ public class Person {
     @Column(name = "age")
     private int age;
     @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name = "personId")
     private int personId;
 
-    @Column(insertable = false,updatable = false, name = "school_id")
-    private int school_id;
 
-    public Person(String name, int age, int personId, int school_id) {
+    public Person(String name, int age, int personId ){
         this.name = name;
         this.age = age;
         this.personId = personId;
-        this.school_id = school_id;
+
     }
     public Person() {
     }
@@ -59,5 +57,7 @@ public class Person {
 //            }
 //    )
     private School school;
+    @ManyToOne
+    private Subject subject;
 
 }

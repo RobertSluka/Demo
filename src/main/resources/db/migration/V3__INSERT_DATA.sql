@@ -1,0 +1,6 @@
+--insert
+--    into
+--        people
+--        (name, age, person_id, school_id)
+--    values
+--        ('marek',24,1,1)

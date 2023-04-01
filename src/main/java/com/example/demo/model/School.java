@@ -1,6 +1,7 @@
 package com.example.demo.model;
 
 import jakarta.persistence.*;
+import lombok.Data;
 
 import java.util.List;
 import java.util.Set;
@@ -9,8 +10,9 @@ import java.util.Set;
 @Table(name = "school")
 public class School {
     @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name = "id")
-    private int id;
+    private Integer id;
     @Column(name = "name")
     private String name;
     @Column(name = "address")
@@ -76,4 +78,10 @@ public class School {
 
     @OneToMany(mappedBy = "school",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     private List<Person> people;
+
+    @ManyToOne
+    private Subject subject;
+
+    @ManyToOne
+    private District district;
 }

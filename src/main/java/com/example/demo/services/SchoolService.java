@@ -5,11 +5,12 @@ import com.example.demo.database.SchoolDB;
 import com.example.demo.model.School;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 
-@Component
+@Service
 public class SchoolService {
     // TODO: see PersonController
     @Autowired

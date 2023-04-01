@@ -1,6 +1,6 @@
 --insert
 --    into
---        users
---        (name, last_name)
+--        people_1
+--        (name, age)
 --    values
---        ('robert','sluka')
+--        ('robert',22)
