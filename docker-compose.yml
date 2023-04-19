@@ -1,0 +1,27 @@
+version: "3"
+services:
+  demo-app:
+    image: demo-ap
+    ports:
+      - "8080:8080"
+#    networks:
+#      - demo-mysql
+#    depends_on:
+#      - mysqldb
+#
+#  mysqldb:
+#    image: mysql:8
+#    networks:
+#      - employee-mysql
+#    environment:
+#      - MYSQL_ROOT_PASSWORD=04061998
+#      - MYSQL_DATABASE=robschool
+
+
+#  mysqldb:
+#    image: mysql:8
+#    networks:
+#      - school-mysql
+#    environment:
+#      - MYSQL_ROOT_PASSWORD=04061998
+#      - MYSQL_DATABASE=school

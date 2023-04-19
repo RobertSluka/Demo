@@ -6,7 +6,7 @@ import com.example.demo.model.School;
 import java.util.List;
 
 public interface PersonService {
-    public void addPersonToTable(Person person);
+    public Person addPersonToTable(Person person);
     List<Person> getAllPeople();
 
     public void deletePerson(int id);

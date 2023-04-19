@@ -1,7 +1,9 @@
 package com.example.demo.controller;
 
+import com.example.demo.DTO.PersonDTO;
 import com.example.demo.database.DataAccessException;
 import com.example.demo.model.Person;
+import com.example.demo.model.PersonMapper;
 import com.example.demo.model.School;
 import com.example.demo.services.PersonServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,14 +16,17 @@ import java.util.List;
 public class PersonController {
     @Autowired
    private  PersonServiceImpl personService;
+
+    @Autowired
+    private PersonMapper personMapper;
 //    @PostMapping("/person/update")
 //    public void updatePerson(Person person) throws DataAccessException {
 //        personService.updatePerson(person);
 //    }
     @PostMapping("/person/save")
-    public Person savePerson(@ModelAttribute Person person) throws DataAccessException {
-       personService.addPersonToTable(person);
-       return person;
+    public Person savePerson(@RequestBody PersonDTO dto) throws DataAccessException {
+       return personService.addPersonToTable(personMapper.toEntity(dto));
+
     }
     @GetMapping("/person/all")
     public List<Person> getAllPeople(){

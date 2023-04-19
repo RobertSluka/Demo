@@ -42,8 +42,8 @@ public class PersonServiceImpl implements PersonService {
 
 
     @Override
-    public void addPersonToTable(Person person) {
-        personDB.save(person);
+    public Person addPersonToTable(Person person) {
+        return personDB.save(person);
     }
 
     @Override

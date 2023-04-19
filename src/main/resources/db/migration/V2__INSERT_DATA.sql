@@ -1,6 +1,6 @@
 --insert
 --    into
---        people_1
+--        people_2
 --        (name, age)
 --    values
 --        ('robert',22)
