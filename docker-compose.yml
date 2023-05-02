@@ -1,8 +1,8 @@
-version: "3"
-services:
-  demo-app:
-    image: demo-ap
-    ports:
+#version: "3"
+#services:
+#  demo-app:
+#    image: demo-ap
+#    ports:
       - "8080:8080"
 #    networks:
 #      - demo-mysql

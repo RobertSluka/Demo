@@ -4,7 +4,11 @@ import com.example.demo.database.DataAccessException;
 import com.example.demo.database.SchoolDB;
 import com.example.demo.model.School;
 import com.example.demo.model.SchoolMapper;
+import com.example.demo.model.UserInfo;
+import com.example.demo.repository.UserInfoRepository;
+import com.example.demo.security.jwt.JwtUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,6 +20,14 @@ public class SchoolService {
     @Autowired
     private final SchoolDB SchoolRepo ;
     private final SchoolMapper schoolMapper;
+
+    @Autowired
+    private UserInfoRepository UserRepo;
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+    @Autowired
+    private JwtUtils jwtUtils;
+
 
     public SchoolService(SchoolDB schoolRepo, SchoolMapper schoolMapper) throws Exception {
         SchoolRepo = schoolRepo;
@@ -41,22 +53,16 @@ public class SchoolService {
         existingSchool.setCapacity(school.getCapacity());
         return SchoolRepo.save(existingSchool);
 
-//    public void updateSchool(int id,SchoolUp) throws DataAccessException {
-//        School school = SchoolRepo.getReferenceById(id);
-//        boolean changes = false;
-//        if (updateRequ)
+
 
 
         }
-//    public int deleteSchool(School school) throws DataAccessException {
-//        return SchoolRepo.delete(school);
-//    }
-//    public School getSchoolById(int id) throws DataAccessException {
-//        return SchoolRepo.selectById(id);
-//    }
-//    public List<School> listAll() {
-//        return (List<School>) SchoolRepo.findAll();
-//    }
+    public String addUser(UserInfo userInfo) {
+        userInfo.setPassword(passwordEncoder.encode(userInfo.getPassword()));
+        UserRepo.save(userInfo);
+//        return jwtUtils.createToken(userInfo);
+        return "Token created successfully";
+    }
 
 
 
