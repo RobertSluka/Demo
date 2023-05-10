@@ -42,15 +42,15 @@ public class SecurityConfig {
 public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
     http.csrf().disable()
             .authorizeHttpRequests()
-            .requestMatchers("/school/save","/school/new").permitAll()
+            .requestMatchers("/school/save","/school/new","/user/new","/user/save").permitAll()
             .and()
             .authorizeHttpRequests()
-            .requestMatchers("/school/**")
+            .requestMatchers("/school/**","/user/**","subject/**","/district/**")
             .authenticated()
             .and()
             .formLogin()
             .loginProcessingUrl("/login")
-            .defaultSuccessUrl("/school/greetings", true)
+            .defaultSuccessUrl("/user/greetings", true)
             .and()
             .oauth2Login(withDefaults());
 

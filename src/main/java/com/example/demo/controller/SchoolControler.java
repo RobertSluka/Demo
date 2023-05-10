@@ -27,12 +27,7 @@ public class SchoolControler {
 
     @Autowired
     private SchoolMapper schoolMapper;
-    @GetMapping("/greetings")
-    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
-    public String welcome() {
-        System.out.println("Welcome this endpoint is not secure");
-        return "Welcome this endpoint is not secure";
-    }
+
     @GetMapping("/private")
     public String welcome(Authentication authentication) {
         return "Welcome this endpoint is not secure ~[ " +
@@ -49,7 +44,7 @@ public class SchoolControler {
     }
 
     @GetMapping("/all")
-    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
+//    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     public List<School> getAllSchools() throws DataAccessException {
         return service.getAllSchools();
     }
@@ -59,18 +54,13 @@ public class SchoolControler {
     public School updateSchoolById(@RequestBody School school) throws DataAccessException {
         return service.updateSchool(school);
     }
-    @PostMapping("/new")
-    public ResponseEntity<String> addNewUser(@RequestBody UserInfo userInfo){
-        service.addUser(userInfo);
-        return ResponseEntity.ok("User added successfully");
-    }
 
     @PostMapping("/save")
     public School addSchool(@RequestBody SchoolDTO dto) throws DataAccessException {
          return service.addSchool(schoolMapper.toEntity(dto));
     }
     @DeleteMapping("/delete/{id}")
-    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
+//    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     public String deleteSchoolById(@PathVariable("id") int id) throws DataAccessException {
         service.deleteSchoolById(id);
         return "School deleted successfully";

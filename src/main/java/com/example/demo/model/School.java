@@ -21,6 +21,7 @@ public class School {
     private int capacity;
 
 
+
     public School() {
     }
 
@@ -87,4 +88,6 @@ public class School {
 
     @ManyToOne
     private District district;
+
+
 }

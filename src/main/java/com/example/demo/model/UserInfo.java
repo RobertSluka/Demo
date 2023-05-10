@@ -5,11 +5,11 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.*;
+import org.apache.catalina.User;
 
 @Entity
 @Data
 @AllArgsConstructor
-@NoArgsConstructor
 @Setter
 @Getter
 public class UserInfo {
@@ -20,4 +20,10 @@ public class UserInfo {
     private String email;
     private String password;
     private String roles;
+    public UserInfo() {
+        // no-argument constructor
+    }
+
+
 }
+

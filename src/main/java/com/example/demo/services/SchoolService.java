@@ -38,6 +38,10 @@ public class SchoolService {
          return SchoolRepo.save(school);
     }
 
+    public School getSchoolById(int id) {
+        return SchoolRepo.getReferenceById(id);
+    }
+
     public void deleteSchoolById(int id) throws DataAccessException {
         SchoolRepo.deleteById(id);
     }
@@ -57,12 +61,7 @@ public class SchoolService {
 
 
         }
-    public String addUser(UserInfo userInfo) {
-        userInfo.setPassword(passwordEncoder.encode(userInfo.getPassword()));
-        UserRepo.save(userInfo);
-//        return jwtUtils.createToken(userInfo);
-        return "Token created successfully";
-    }
+
 
 
 
