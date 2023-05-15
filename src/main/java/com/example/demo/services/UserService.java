@@ -13,16 +13,15 @@ import java.util.Optional;
 public class UserService {
 
     @Autowired
-    private PasswordEncoder passwordEncoder;
-    @Autowired
     private UserInfoRepository userRepo;
 
-    public String addUser(UserInfo userInfo) {
-        userInfo.setPassword(passwordEncoder.encode(userInfo.getPassword()));
-        userRepo.save(userInfo);
-//        return jwtUtils.createToken(userInfo);
-        return "Token created successfully";
-    }
+    // TODO: bcrypt password hashing
+//    public String addUser(UserInfo userInfo) {
+//        userInfo.setPassword(passwordEncoder.encode(userInfo.getPassword()));
+//        userRepo.save(userInfo);
+////        return jwtUtils.createToken(userInfo);
+//        return "Token created successfully";
+//    }
 
     public void deleteUserById(int id) {
         userRepo.deleteById(id);
