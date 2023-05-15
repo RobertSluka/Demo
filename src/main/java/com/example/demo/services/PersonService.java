@@ -6,13 +6,11 @@ import com.example.demo.model.School;
 import java.util.List;
 
 public interface PersonService {
-    public Person addPersonToTable(Person person);
+    Person addPersonToTable(Person person);
     List<Person> getAllPeople();
-
-    public void deletePerson(int id);
-
-    public School getPersonsSchoolById(int school_id);
-    public List<Person> findPeopleBySchoolId(int id);
+    void deletePerson(int id);
+    School getPersonsSchoolById(int school_id);
+    List<Person> findPeopleBySchoolId(int id);
 
 
 }

@@ -16,18 +16,9 @@ import java.util.List;
 
 @Service
 public class SchoolService {
-    // TODO: see PersonController
     @Autowired
     private final SchoolDB SchoolRepo ;
     private final SchoolMapper schoolMapper;
-
-    @Autowired
-    private UserInfoRepository UserRepo;
-    @Autowired
-    private PasswordEncoder passwordEncoder;
-    @Autowired
-    private JwtUtils jwtUtils;
-
 
     public SchoolService(SchoolDB schoolRepo, SchoolMapper schoolMapper) throws Exception {
         SchoolRepo = schoolRepo;
@@ -56,14 +47,7 @@ public class SchoolService {
         existingSchool.setName(school.getName());
         existingSchool.setCapacity(school.getCapacity());
         return SchoolRepo.save(existingSchool);
-
-
-
-
         }
-
-
-
 
     @Override
     public String toString() {

@@ -86,8 +86,4 @@ public class School {
     @ManyToOne
     private Subject subject;
 
-    @ManyToOne
-    private District district;
-
-
 }

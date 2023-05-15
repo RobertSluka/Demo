@@ -21,25 +21,12 @@ public class PersonServiceImpl implements PersonService {
     @Autowired
     SchoolDB schoolDB;
 
-
-
     @Override
     public String toString() {
         return "PersonContainer{" +
                 "people="+
                 '}';
     }
-
-
-
-//    public int updatePerson (Person person) throws DataAccessException {
-//        return personDB.update(person);
-//    }
-//    public Person getPersonById (int id) throws DataAccessException{
-//        return personDB.selectByID(id);
-//
-//    }
-
 
     @Override
     public Person addPersonToTable(Person person) {
