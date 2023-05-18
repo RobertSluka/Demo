@@ -34,14 +34,23 @@ public class SchoolControler {
     }
 
     @PostMapping("/save")
-    public School addSchool(@RequestBody SchoolDTO dto, @RequestHeader("authorization") String token) throws DataAccessException {
-        // there is substring 7 because we are removing the "Bearer " part of the token
-        System.out.println("token: " + token.substring(7));
-        // todo: get id or userInfo from here
-        jwtUtils.getUsernameFromJWT(token.substring(7));
-        // TODO: get user/roles, validate access and then return 403 if not allowed or keep the commented return if allowed
-//         return service.addSchool(schoolMapper.toEntity(dto));
-        return new School("haha",100,"haha",1);
+    public String addSchool(@RequestBody SchoolDTO dto, @RequestHeader("authorization") String token) throws DataAccessException {
+//        // Check if the token is long enough to avoid truncation issues
+        if (token.length() < 7) {
+            return "Invalid token";
+        }
+////
+////        // Extract the token value by removing the "Bearer " part
+        String jwtToken = token.substring(7);
+//
+
+        // Validate the token and extract the username
+        if (jwtUtils.validateUserByToken(jwtToken)) {
+            service.addSchool(schoolMapper.toEntity(dto));
+            return "School was added";
+        } else {
+            return "The user is not valid";
+        }
     }
     @DeleteMapping("/delete/{id}")
     public String deleteSchoolById(@PathVariable("id") int id) throws DataAccessException {

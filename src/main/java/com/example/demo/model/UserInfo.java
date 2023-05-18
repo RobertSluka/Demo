@@ -1,17 +1,13 @@
 package com.example.demo.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
 import org.apache.catalina.User;
 
 @Entity
 @Data
 @AllArgsConstructor
-@Setter
-@Getter
+@Table(name = "userInfo")
 public class UserInfo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,6 +20,8 @@ public class UserInfo {
         // no-argument constructor
     }
 
-
+    public String getEmail() {
+        return email;
+    }
 }
 

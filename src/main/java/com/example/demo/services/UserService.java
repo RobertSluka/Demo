@@ -11,17 +11,19 @@ import java.util.Optional;
 
 @Service
 public class UserService {
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     @Autowired
     private UserInfoRepository userRepo;
 
     // TODO: bcrypt password hashing
-//    public String addUser(UserInfo userInfo) {
-//        userInfo.setPassword(passwordEncoder.encode(userInfo.getPassword()));
-//        userRepo.save(userInfo);
-////        return jwtUtils.createToken(userInfo);
-//        return "Token created successfully";
-//    }
+    public String addUser(UserInfo userInfo) {
+        userInfo.setPassword(passwordEncoder.encode(userInfo.getPassword()));
+        userRepo.save(userInfo);
+//        return jwtUtils.createToken(userInfo);
+        return "Token created successfully";
+    }
 
     public void deleteUserById(int id) {
         userRepo.deleteById(id);
@@ -39,4 +41,12 @@ public class UserService {
     public Optional<UserInfo> findUserByEmail(String email){
         return userRepo.findByEmail(email);
     }
+
+    public Optional<UserInfo> findUserByName(String name){
+        return userRepo.findByName(name);
+    }
+    public Optional<UserInfo> findUserByPassword(String password){
+        return userRepo.findByPassword(password);
+    }
+
 }

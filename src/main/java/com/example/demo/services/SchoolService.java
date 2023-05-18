@@ -40,6 +40,9 @@ public class SchoolService {
     public List<School> getAllSchools() throws DataAccessException {
         return SchoolRepo.findAll();
     }
+    public School getSchoolByName(String name)throws DataAccessException{
+       return SchoolRepo.findByName(name);
+    }
     public School updateSchool(School school) throws DataAccessException {
         School existingSchool = SchoolRepo.findById(school.getId()).orElse(null);
         existingSchool.setId(school.getId());

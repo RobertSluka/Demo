@@ -36,8 +36,9 @@ public class UnitTests {
         // arrange
 
         String password = "04061998"; // plaintext password
+        userMarek = new UserInfo(23,"Robik", "test","robosluka11@gmail.com", "ROLE_ADMIN");
         String token = jwtUtils.createToken(userMarek);
-        userMarek = new UserInfo(23,"Robik", "robosluka11@gmail.com", token, "ROLE_ADMIN");
+
         // act
 
         // assert
