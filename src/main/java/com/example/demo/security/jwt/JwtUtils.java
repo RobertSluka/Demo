@@ -45,7 +45,7 @@ public class JwtUtils {
     public boolean validateUserIfExists(String name) throws DataAccessException {
         Optional<UserInfo> userList = repo.findByName(name);
 
-        if (!userList.isEmpty()) {
+        if (userList.isEmpty()) {
             throw new AuthenticationCredentialsNotFoundException("User with this name doesn't exist");
         }
 
@@ -107,7 +107,7 @@ public class JwtUtils {
             if (name == null || name.isEmpty()) {
                 throw new AuthenticationCredentialsNotFoundException("Name is missing in the JWT token");
             }
-            if (validateUserIfExists(name)) {
+            if (!validateUserIfExists(name)) {
                 throw new AuthenticationCredentialsNotFoundException(("User with this name doesn't exist"));
             }
 

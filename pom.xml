@@ -22,6 +22,13 @@
 
 		</dependency>
 		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-websocket</artifactId>
+			<version>6.0.9</version>
+		</dependency>
+
+
+		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-jdbc</artifactId>
 
@@ -116,6 +123,13 @@
 			<artifactId>junit-jupiter</artifactId>
 			<version>5.8.0</version>
 			<scope>test</scope>
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-messaging</artifactId>
+			<version>6.0.6</version>
 		</dependency>
 	</dependencies>
 
