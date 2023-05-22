@@ -1,13 +1,13 @@
-package com.example.demo.webSocket;
-
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-public class Greeting {
-
-    private String message;
-}
+//package com.example.demo.webSocket;
+//
+//import lombok.AllArgsConstructor;
+//import lombok.Data;
+//import lombok.NoArgsConstructor;
+//
+//@Data
+//@NoArgsConstructor
+//@AllArgsConstructor
+//public class Greeting {
+//
+//    private String message;
+//}
